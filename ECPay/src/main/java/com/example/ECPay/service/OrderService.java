@@ -10,7 +10,7 @@ import ecpay.payment.integration.domain.AioCheckOutALL;
 @Service
 public class OrderService {
 
-	public String ecpayCheckout() {
+	public String ecpayCheckout(String amount) {
 		
 		String uuId = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 20);
 		
@@ -19,7 +19,7 @@ public class OrderService {
 		AioCheckOutALL obj = new AioCheckOutALL();
 		obj.setMerchantTradeNo(uuId);
 		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setTotalAmount("100");
+		obj.setTotalAmount(amount);
 		obj.setTradeDesc("test Description");
 		obj.setItemName("TestItem");
 		obj.setReturnURL("http://localhost:8080/form.html");
